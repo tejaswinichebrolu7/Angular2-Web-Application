@@ -1,0 +1,55 @@
+<!-- main app container -->
+<div class="jumbotron">
+
+<div id="header">
+    <header>
+     <div>
+     <span class="header">Welcome {{currentUser.firstName}} | {{todaysDate | date}} | <a [routerLink]="['/login']">Logout</a> </span>
+     <span class="header" >Care management solutions</span>   
+     </div>
+    </header>
+   </div>
+   
+   
+   <div class="container">
+  <ul class="nav nav-tabs">
+    <li><a class="tabs" routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a class="tabs" routerLink="/assessments" routerLinkActive="active">Assements</a></li>
+	<li class="active"><a class="tabs" routerLink="/newenrollments" routerLinkActive="active">New Enrollments</a></li>
+  </ul>
+</div>
+
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <p>New Enrollments</p>
+        </div>
+    </div>
+	
+<div class="well">
+ <div>
+  <table border="1" style="width:100%">
+	<thead>
+		<tr>
+			<td><b>S.No</b></td>
+			<td><b>Name</b></td>
+			<td><b>Id</b></td>
+			<td><b>dob</b></td>
+		    <td><b>address</b></td>
+			<td><b>email</b></td>
+			<td><b>Actions</b></td>
+		</tr>
+	</thead>
+	<tbody *ngIf="persons">
+		<tr *ngFor="let person of persons; let i=index">
+			<td>{{i + 1}}</td>
+			<td>{{person.name}}</td>
+			<td>{{person.id}}</td>
+			<td>{{person.dob}}</td>
+			<td>{{person.address}}</td>
+			<td><a>{{person.email}}</a></td>
+		</tr>
+	</tbody>
+  </table>
+  </div>
+  </div>
+</div>
